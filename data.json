@@ -26,8 +26,18 @@
       "text": "Hier findest du Programm, Neuigkeiten und unsere Sponsoren. Tipp: Installiere die App auf deinem Startbildschirm und aktiviere Benachrichtigungen, dann verpasst du nichts."
     }
   ],
-  "sponsoren": [
-    { "name": "Sponsor 1", "text": "Kurze Beschreibung des Sponsors.", "url": "", "logo": "" },
-    { "name": "Sponsor 2", "text": "Kurze Beschreibung des Sponsors.", "url": "", "logo": "" }
-  ]
+ "sponsoren": [
+  {
+    "name": "Name des Sponsors 1",
+    "text": "Kurze Beschreibung, z. B. Metzgerei, Eschbach",
+    "url": "https://www.sponsor1.de",
+    "logo": "sponsor1.png"
+  },
+  {
+    "name": "Name des Sponsors 2",
+    "text": "Kurze Beschreibung",
+    "url": "https://www.sponsor2.de",
+    "logo": "sponsor2.png"
+  }
+]
 }
