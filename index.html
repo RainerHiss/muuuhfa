@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MuuuhFa 2027</title>
+<meta name="description" content="Programm, News und Sponsoren der MuuuhFa 2027 – Musiker-Fasnet in Eschbach">
+<meta name="theme-color" content="#2b1708">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MuuuhFa">
+<style>
+:root{
+  --bg:#2b1708; --card:#3d2410; --card2:#4a2c13; --text:#fff6e6; --muted:#d9bf9a;
+  --accent:#f5a623; --green:#4cb944; --line:#5a3a1d;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--text);
+  font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  padding-bottom:calc(72px + env(safe-area-inset-bottom));
+}
+header{
+  position:relative; padding:28px 16px 22px; text-align:center;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(245,166,35,.35), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(76,185,68,.2), transparent 45%),
+    linear-gradient(#1c0e04,#2b1708);
+  border-bottom:3px dashed var(--line);
+}
+.kicker{font-weight:800;letter-spacing:.5px;color:#fff}
+.logo{
+  display:inline-block; margin:6px 0 2px;
+  font-weight:900; font-size:clamp(40px,13vw,72px); line-height:1; letter-spacing:1px;
+  color:#fff; -webkit-text-stroke:3px #000; paint-order:stroke fill;
+  text-shadow:0 4px 0 rgba(0,0,0,.35);
+}
+.logo b{color:var(--green)}
+.claim{font-size:20px;font-style:italic;color:#fff}
+.chip{
+  display:inline-block;margin-top:12px;padding:6px 14px;border-radius:999px;
+  background:var(--accent);color:#2b1708;font-weight:700;font-size:14px
+}
+main{max-width:720px;margin:0 auto;padding:16px}
+section{display:none}
+section.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:0 0 14px}
+h2{margin:4px 0 12px;font-size:22px}
+h3{margin:0 0 4px;font-size:18px}
+.muted{color:var(--muted)}
+.count{display:flex;gap:8px;justify-content:center;margin:6px 0 2px}
+.count div{background:var(--card2);border-radius:12px;padding:10px 6px;min-width:64px;text-align:center}
+.count b{display:block;font-size:26px;color:var(--accent)}
+.count span{font-size:12px;color:var(--muted)}
+.btn{
+  display:inline-block;border:0;border-radius:12px;padding:12px 16px;font-size:16px;font-weight:700;
+  background:var(--accent);color:#2b1708;text-decoration:none;cursor:pointer
+}
+.btn.alt{background:var(--card2);color:var(--text);border:1px solid var(--line)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.tag{margin:18px 0 8px;font-weight:800;color:var(--accent);text-transform:uppercase;font-size:13px;letter-spacing:.8px}
+.slot{display:flex;gap:14px}
+.slot time{min-width:56px;font-weight:800;font-size:18px;color:var(--accent)}
+.news small{color:var(--muted)}
+.sponsor{display:flex;gap:14px;align-items:center}
+.sponsor img{width:72px;height:72px;object-fit:contain;background:#fff;border-radius:12px;padding:4px}
+.sponsor .ph{width:72px;height:72px;border-radius:12px;background:var(--card2);display:grid;place-items:center;font-size:30px}
+a{color:var(--accent)}
+nav{
+  position:fixed;left:0;right:0;bottom:0;display:flex;background:#1c0e04;border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom);z-index:5
+}
+nav button{
+  flex:1;background:none;border:0;color:var(--muted);padding:10px 4px 8px;font-size:12px;cursor:pointer
+}
+nav button span{display:block;font-size:22px}
+nav button.on{color:var(--accent)}
+#hint{display:none;font-size:14px}
+.hero{width:100%;border-radius:12px;margin:0 0 12px;display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Musiker-Fasnet</div>
+  <div class="logo">Muuuh<b>Fa</b></div>
+  <div class="claim">– tierisch gut drauf –</div>
+  <div class="chip" id="chip">30. Januar 2027 · 19:00 · Alemannenhalle Eschbach</div>
+</header>
+
+<main>
+  <section id="start" class="on">
+    <div class="card">
+      <h2>Noch…</h2>
+      <div class="count" id="count"></div>
+      <p class="muted" id="countNote" style="text-align:center;margin:8px 0 0"></p>
+    </div>
+    <div class="card">
+      <img class="hero" id="plakat" src="plakat.jpg" alt="Plakat MuuuhFa 2027" onload="this.style.display='block'">
+      <h2 id="evName">MuuuhFa 2027</h2>
+      <div id="evText"></div>
+      <div class="row">
+        <a class="btn" id="mapBtn" href="#" target="_blank" rel="noopener">📍 Anfahrt</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>🎟️ Vorverkauf</h3>
+      <p id="evVvk" style="margin:4px 0 0"></p>
+    </div>
+    <div class="card">
+      <h3>🔔 Nichts verpassen</h3>
+      <p class="muted" style="margin:4px 0 10px">Aktiviere Benachrichtigungen für Neuigkeiten und Programmänderungen.</p>
+      <button class="btn" id="pushBtn">Benachrichtigungen aktivieren</button>
+      <p id="hint" class="muted"></p>
+    </div>
+    <div class="card" id="installCard" style="display:none">
+      <h3>📲 App installieren</h3>
+      <p class="muted" id="installText" style="margin:4px 0 10px"></p>
+      <button class="btn alt" id="installBtn" style="display:none">Auf Startbildschirm legen</button>
+    </div>
+  </section>
+
+  <section id="programm"><h2>Programm</h2><div id="progList"></div></section>
+  <section id="news"><h2>News</h2><div id="newsList"></div></section>
+  <section id="sponsoren"><h2>Sponsoren</h2><p class="muted">Danke an alle, die die MuuuhFa möglich machen! 🐄</p><div id="spList"></div></section>
+</main>
+
+<nav>
+  <button data-t="start" class="on"><span>🏠</span>Start</button>
+  <button data-t="programm"><span>🗓️</span>Programm</button>
+  <button data-t="news"><span>📣</span>News</button>
+  <button data-t="sponsoren"><span>🤝</span>Sponsoren</button>
+</nav>
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+/* ====== EINSTELLUNG: OneSignal App-ID hier eintragen (siehe ANLEITUNG.md) ====== */
+const ONESIGNAL_APP_ID = "HIER-ONESIGNAL-APP-ID";
+/* ================================================================================ */
+
+const $ = (id) => document.getElementById(id);
+function el(tag, props = {}, kids = []) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (k === "text") n.textContent = v; else if (k === "class") n.className = v; else n.setAttribute(k, v);
+  }
+  kids.forEach((c) => n.appendChild(c));
+  return n;
+}
+function safeUrl(u) { return /^https?:\/\//i.test(u || "") ? u : ""; }
+
+// Tabs
+document.querySelectorAll("nav button").forEach((b) => b.addEventListener("click", () => show(b.dataset.t)));
+function show(t) {
+  document.querySelectorAll("section").forEach((s) => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("nav button").forEach((x) => x.classList.toggle("on", x.dataset.t === t));
+  scrollTo(0, 0);
+  try { history.replaceState(null, "", "#" + t); } catch (e) {}
+}
+if (["programm", "news", "sponsoren"].includes(location.hash.slice(1))) show(location.hash.slice(1));
+
+// Inhalte
+let startTs = 0;
+fetch("data.json?" + Date.now()).then((r) => r.json()).then(render).catch(() => {
+  $("evText").textContent = "Inhalte konnten nicht geladen werden. Bitte Internetverbindung prüfen.";
+});
+
+function render(d) {
+  const e = d.event;
+  startTs = new Date(e.start).getTime();
+  $("evName").textContent = e.name + " – " + e.untertitel;
+  $("chip").textContent = e.datumText.replace("Samstag, ", "") + " · " + e.ort;
+  e.text.forEach((p) => $("evText").appendChild(el("p", { text: p })));
+  $("evVvk").textContent = e.vorverkauf;
+  $("mapBtn").href = safeUrl(e.karte) || "#";
+
+  // Programm nach Tag gruppiert
+  const list = $("progList"); let last = "";
+  d.programm.forEach((p) => {
+    if (p.tag !== last) { list.appendChild(el("div", { class: "tag", text: p.tag })); last = p.tag; }
+    list.appendChild(el("div", { class: "card slot" }, [
+      el("time", { text: p.zeit }),
+      el("div", {}, [el("h3", { text: p.titel }), el("div", { class: "muted", text: p.text || "" })])
+    ]));
+  });
+
+  // News (neueste zuerst)
+  const nl = $("newsList");
+  [...d.news].sort((a, b) => b.datum.localeCompare(a.datum)).forEach((n) => {
+    const dt = new Date(n.datum).toLocaleDateString("de-DE", { day: "2-digit", month: "long", year: "numeric" });
+    nl.appendChild(el("div", { class: "card news" }, [
+      el("small", { text: dt }), el("h3", { text: n.titel }), el("div", { text: n.text })
+    ]));
+  });
+
+  // Sponsoren
+  const sl = $("spList");
+  d.sponsoren.forEach((s) => {
+    const logo = s.logo ? el("img", { src: s.logo, alt: s.name }) : el("div", { class: "ph", text: "🐄" });
+    const info = el("div", {}, [el("h3", { text: s.name }), el("div", { class: "muted", text: s.text || "" })]);
+    const u = safeUrl(s.url);
+    if (u) info.appendChild(el("a", { href: u, target: "_blank", rel: "noopener", text: "Website öffnen →" }));
+    sl.appendChild(el("div", { class: "card sponsor" }, [logo, info]));
+  });
+  tick();
+}
+
+// Countdown
+function tick() {
+  if (!startTs) return;
+  const box = $("count"); const diff = startTs - Date.now();
+  box.textContent = "";
+  if (diff <= 0) { $("countNote").textContent = "Die MuuuhFa läuft – viel Spaß! 🎉"; return; }
+  const s = Math.floor(diff / 1000);
+  [[Math.floor(s / 86400), "Tage"], [Math.floor(s % 86400 / 3600), "Std"], [Math.floor(s % 3600 / 60), "Min"], [s % 60, "Sek"]]
+    .forEach(([v, l]) => box.appendChild(el("div", {}, [el("b", { text: String(v) }), el("span", { text: l })])));
+  $("countNote").textContent = "bis zur MuuuhFa 2027 🐮";
+}
+setInterval(tick, 1000);
+
+// Installieren
+let deferred = null;
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault(); deferred = e;
+  $("installCard").style.display = "block"; $("installBtn").style.display = "inline-block";
+  $("installText").textContent = "Mit einem Tipp als App auf dem Startbildschirm.";
+});
+$("installBtn").addEventListener("click", async () => { if (deferred) { deferred.prompt(); deferred = null; $("installCard").style.display = "none"; } });
+if (isIOS && !standalone) {
+  $("installCard").style.display = "block";
+  $("installText").textContent = "iPhone: Tippe unten auf „Teilen“ (Quadrat mit Pfeil) und dann auf „Zum Home-Bildschirm“. Nur so funktionieren Benachrichtigungen auf dem iPhone.";
+}
+
+// Service Worker + Push
+const base = location.pathname.replace(/[^/]*$/, "");
+if ("serviceWorker" in navigator && ONESIGNAL_APP_ID === "HIER-ONESIGNAL-APP-ID") {
+  // Push noch nicht eingerichtet: nur Offline-Cache
+  navigator.serviceWorker.register("sw.js", { scope: base }).catch(() => {});
+}
+window.OneSignalDeferred = window.OneSignalDeferred || [];
+if (ONESIGNAL_APP_ID !== "HIER-ONESIGNAL-APP-ID") {
+  OneSignalDeferred.push(async function (OneSignal) {
+    await OneSignal.init({
+      appId: ONESIGNAL_APP_ID,
+      serviceWorkerPath: "sw.js",
+      serviceWorkerParam: { scope: base },
+      notifyButton: { enable: false },
+      welcomeNotification: { disable: true }
+    });
+    const upd = () => {
+      const on = OneSignal.Notifications.permission && OneSignal.User.PushSubscription.optedIn;
+      $("pushBtn").textContent = on ? "✅ Benachrichtigungen aktiv" : "Benachrichtigungen aktivieren";
+    };
+    upd();
+    OneSignal.User.PushSubscription.addEventListener("change", upd);
+    $("pushBtn").addEventListener("click", async () => {
+      if (isIOS && !standalone) {
+        $("hint").style.display = "block";
+        $("hint").textContent = "Bitte zuerst die App zum Home-Bildschirm hinzufügen und von dort öffnen.";
+        return;
+      }
+      try { await OneSignal.Notifications.requestPermission(); } catch (e) {}
+      upd();
+    });
+  });
+} else {
+  $("pushBtn").addEventListener("click", () => {
+    $("hint").style.display = "block";
+    $("hint").textContent = "Push ist noch nicht eingerichtet (OneSignal App-ID fehlt).";
+  });
+}
+</script>
+</body>
+</html>
