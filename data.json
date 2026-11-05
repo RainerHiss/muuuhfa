@@ -28,15 +28,15 @@
   ],
  "sponsoren": [
   {
-    "name": "Name des Sponsors 1",
-    "text": "Kurze Beschreibung, z. B. Metzgerei, Eschbach",
-    "url": "https://www.sponsor1.de",
+    "name": "Heinrich Schmid",
+    "text": "Malerbetriebe Heinrich Schmid",
+    "url": "https://www.heinrich-schmid.com/standorte/eschbach-007/",
     "logo": "sponsor1.png"
   },
   {
-    "name": "Name des Sponsors 2",
-    "text": "Kurze Beschreibung",
-    "url": "https://www.sponsor2.de",
+    "name": "TREA",
+    "text": "TREA Breisgau) im Gewerbepark Breisgau",
+    "url": "http://www.tbe-waerme.de/startseite.html",
     "logo": "sponsor2.png"
   }
 ]
