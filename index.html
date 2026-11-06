@@ -168,7 +168,8 @@ function render(d) {
   const e = d.event;
   startTs = new Date(e.start).getTime();
   $("evName").textContent = e.name + " – " + e.untertitel;
-  
+  e.text.forEach((p) => $("evText").appendChild(el("p", { text: p })));
+ 
 
   // Programm nach Tag gruppiert
   const list = $("progList"); let last = "";
