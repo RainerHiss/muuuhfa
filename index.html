@@ -170,8 +170,7 @@ function render(d) {
   $("evName").textContent = e.name + " – " + e.untertitel;
   $("chip").textContent = e.datumText.replace("Samstag, ", "") + " · " + e.ort;
   e.text.forEach((p) => $("evText").appendChild(el("p", { text: p })));
-  $("evVvk").textContent = e.vorverkauf;
- 
+  
 
   // Programm nach Tag gruppiert
   const list = $("progList"); let last = "";
