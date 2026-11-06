@@ -93,12 +93,7 @@ nav button.on{color:var(--accent)}
 
 <main>
   <section id="start" class="on">
-    <div class="card">
-      <h2>Noch…</h2>
-      <div class="count" id="count"></div>
-      <p class="muted" id="countNote" style="text-align:center;margin:8px 0 0"></p>
-    </div>
-    <div class="card">
+   <div class="card">
       <img class="hero" id="plakat" src="plakat.jpg" alt="Plakat MuuuhFa 2027" onload="this.style.display='block'">
       <h2 id="evName">MuuuhFa 2027</h2>
       <div id="evText"></div>
@@ -123,7 +118,14 @@ nav button.on{color:var(--accent)}
     </div>
   </section>
 
-  <section id="programm"><h2>Programm</h2><div id="progList"></div></section>
+   <section id="programm"><h2>Programm</h2>
+    <div id="progList"></div>
+    <div class="card">
+      <h2>Noch…</h2>
+      <div class="count" id="count"></div>
+      <p class="muted" id="countNote" style="text-align:center;margin:8px 0 0"></p>
+    </div>
+  </section>
   <section id="news"><h2>News</h2><div id="newsList"></div></section>
   <section id="sponsoren"><h2>Sponsoren</h2><p class="muted">Danke an alle, die die MuuuhFa möglich machen! 🐄</p><div id="spList"></div></section>
 </main>
