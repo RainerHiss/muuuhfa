@@ -1,6 +1,6 @@
 {
   "event": {
-    "name": "MuuuhFa-2027",
+    "name": "MuuuhFa 2027",
     "untertitel": "Musiker-Fasnet – tierisch gut drauf",
     "start": "2027-01-30T19:00:00+01:00",
     "datumText": "Samstag, 30. Januar 2027, 19:00 Uhr",
@@ -13,28 +13,21 @@
       "Wir freuen uns auf euch!"
     ]
   },
-  "termine": [
+  "programm": [
     { "tag": "Sa, 16.01.2027", "zeit": "10:00", "titel": "Vorverkauf", "text": "Altes Rathaus Eschbach" },
-    { "tag": "Sa, 30.01.2027", "zeit": "19:00", "titel": "Beginn der MuuuhFa", "text": "Alemannenhalle Eschbach" }
+    { "tag": "Sa, 30.01.2027", "zeit": "19:00", "titel": "Beginn der MuuuhFa", "text": "Alemannenhalle Eschbach" },
+    { "tag": "Sa, 30.01.2027", "zeit": "20:00", "titel": "BEISPIEL: Show & Musik", "text": "Bitte in data.json durch das echte Programm ersetzen." },
+    { "tag": "Sa, 30.01.2027", "zeit": "22:00", "titel": "BEISPIEL: Kostümprämierung", "text": "Bitte in data.json anpassen oder löschen." }
+  ],
   "news": [
     {
       "datum": "2026-11-05",
       "titel": "Die MuuuhFa-App ist online!",
-      "text": "Hier findest du Termine, Neuigkeiten und unsere Sponsoren. Tipp: Installiere die App auf deinem Startbildschirm und aktiviere Benachrichtigungen, dann verpasst du nichts."
+      "text": "Hier findest du Programm, Neuigkeiten und unsere Sponsoren. Tipp: Installiere die App auf deinem Startbildschirm und aktiviere Benachrichtigungen, dann verpasst du nichts."
     }
   ],
- "sponsoren": [
-  {
-    "name": "Heinrich Schmid",
-    "text": "Malerbetriebe Heinrich Schmid",
-    "url": "https://www.heinrich-schmid.com/standorte/eschbach-007/",
-    "logo": "sponsor1.png"
-  },
-  {
-    "name": "TREA",
-    "text": "TREA im Gewerbepark Breisgau",
-    "url": "https://www.eew-energyfromwaste.com/de/standorte/eschbach-breisgau/",
-    "logo": "sponsor2.png"
-  }
-]
+  "sponsoren": [
+    { "name": "Sponsor 1", "text": "Kurze Beschreibung des Sponsors.", "url": "", "logo": "" },
+    { "name": "Sponsor 2", "text": "Kurze Beschreibung des Sponsors.", "url": "", "logo": "" }
+  ]
 }

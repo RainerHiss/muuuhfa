@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MuuuhFa 2027</title>
-<meta name="description" content="Termine, News und Sponsoren der MuuuhFa 2027 – Musiker-Fasnet in Eschbach">
+<meta name="description" content="Programm, News und Sponsoren der MuuuhFa 2027 – Musiker-Fasnet in Eschbach">
 <meta name="theme-color" content="#2b1708">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
@@ -112,7 +112,7 @@ nav button.on{color:var(--accent)}
     </div>
     <div class="card">
       <h3>🔔 Nichts verpassen</h3>
-      <p class="muted" style="margin:4px 0 10px">Aktiviere Benachrichtigungen für Neuigkeiten und Terminänderungen.</p>
+      <p class="muted" style="margin:4px 0 10px">Aktiviere Benachrichtigungen für Neuigkeiten und Programmänderungen.</p>
       <button class="btn" id="pushBtn">Benachrichtigungen aktivieren</button>
       <p id="hint" class="muted"></p>
     </div>
@@ -123,14 +123,14 @@ nav button.on{color:var(--accent)}
     </div>
   </section>
 
-  <section id="Termine"><h2>Termine</h2><div id="progList"></div></section>
+  <section id="programm"><h2>Programm</h2><div id="progList"></div></section>
   <section id="news"><h2>News</h2><div id="newsList"></div></section>
   <section id="sponsoren"><h2>Sponsoren</h2><p class="muted">Danke an alle, die die MuuuhFa möglich machen! 🐄</p><div id="spList"></div></section>
 </main>
 
 <nav>
   <button data-t="start" class="on"><span>🏠</span>Start</button>
-  <button data-t="Termine"><span>🗓️</span>Termine</button>
+  <button data-t="programm"><span>🗓️</span>Programm</button>
   <button data-t="news"><span>📣</span>News</button>
   <button data-t="sponsoren"><span>🤝</span>Sponsoren</button>
 </nav>
@@ -160,7 +160,7 @@ function show(t) {
   scrollTo(0, 0);
   try { history.replaceState(null, "", "#" + t); } catch (e) {}
 }
-if (["Termine", "news", "sponsoren"].includes(location.hash.slice(1))) show(location.hash.slice(1));
+if (["programm", "news", "sponsoren"].includes(location.hash.slice(1))) show(location.hash.slice(1));
 
 // Inhalte
 let startTs = 0;
@@ -177,9 +177,9 @@ function render(d) {
   $("evVvk").textContent = e.vorverkauf;
   $("mapBtn").href = safeUrl(e.karte) || "#";
 
-  // Termine nach Tag gruppiert
+  // Programm nach Tag gruppiert
   const list = $("progList"); let last = "";
-  d.Termine.forEach((p) => {
+  d.programm.forEach((p) => {
     if (p.tag !== last) { list.appendChild(el("div", { class: "tag", text: p.tag })); last = p.tag; }
     list.appendChild(el("div", { class: "card slot" }, [
       el("time", { text: p.zeit }),
