@@ -15,10 +15,8 @@
   },
   "programm": [
     { "tag": "Sa, 16.01.2027", "zeit": "10:00", "titel": "Vorverkauf", "text": "Altes Rathaus Eschbach" },
-    { "tag": "Sa, 30.01.2027", "zeit": "19:00", "titel": "Beginn der MuuuhFa", "text": "Alemannenhalle Eschbach" },
-    { "tag": "Sa, 30.01.2027", "zeit": "20:00", "titel": "BEISPIEL: Show & Musik", "text": "Bitte in data.json durch das echte Programm ersetzen." },
-    { "tag": "Sa, 30.01.2027", "zeit": "22:00", "titel": "BEISPIEL: Kostümprämierung", "text": "Bitte in data.json anpassen oder löschen." }
-  ],
+    { "tag": "Sa, 30.01.2027", "zeit": "19:00", "titel": "Beginn der MuuuhFa", "text": "Alemannenhalle Eschbach" }
+     ],
   "news": [
     {
       "datum": "2026-11-05",
