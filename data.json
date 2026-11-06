@@ -24,8 +24,18 @@
       "text": "Hier findest du Programm, Neuigkeiten und unsere Sponsoren. Tipp: Installiere die App auf deinem Startbildschirm und aktiviere Benachrichtigungen, dann verpasst du nichts."
     }
   ],
-  "sponsoren": [
-    { "name": "Sponsor 1", "text": "Kurze Beschreibung des Sponsors.", "url": "", "logo": "" },
-    { "name": "Sponsor 2", "text": "Kurze Beschreibung des Sponsors.", "url": "", "logo": "" }
-  ]
+ "sponsoren": [
+  {
+    "name": "Malerbertriebe Heindrich Schmid",
+    "text": "Der Standort Eschbach steht seit 50 Jahren für Qualität und Facettenreichtum.",
+    "url": "https://www.heinrich-schmid.com/standorte/eschbach-007/",
+    "logo": "sponsor1.png"
+  },
+  {
+    "name": "TREA Gewerbepark Breisgau",
+    "text": "Thermischen Restabfallbehandlungs- und Energieerzeugungsanlage (TREA)",
+    "url": "https://www.eew-energyfromwaste.com/de/standorte/eschbach-breisgau/",
+    "logo": "sponsor2.png"
+  }
+]
 }
