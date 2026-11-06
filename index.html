@@ -175,7 +175,7 @@ function render(d) {
   $("chip").textContent = e.datumText.replace("Samstag, ", "") + " · " + e.ort;
   e.text.forEach((p) => $("evText").appendChild(el("p", { text: p })));
   $("evVvk").textContent = e.vorverkauf;
-  $("mapBtn").href = safeUrl(e.karte) || "#";
+ 
 
   // Programm nach Tag gruppiert
   const list = $("progList"); let last = "";
