@@ -92,15 +92,23 @@ nav button.on{color:var(--accent)}
 </header>
 
 <main>
-  <section id="start" class="on">
-   <div class="card">
+ <section id="start" class="on">
+    <div class="card">
+      <h2>Noch…</h2>
+      <div class="count" id="count"></div>
+      <p class="muted" id="countNote" style="text-align:center;margin:8px 0 0"></p>
+    </div>
+    <div class="card">
       <img class="hero" id="plakat" src="plakat.jpg" alt="Plakat MuuuhFa 2027" onload="this.style.display='block'">
       <h2 id="evName">MuuuhFa 2027</h2>
       <div id="evText"></div>
-      <div class="card" id="installCard" style="display:none">
-      <h3>📲 App installieren</h3>
-      <p class="muted" id="installText" style="margin:4px 0 10px"></p>
-      <button class="btn alt" id="installBtn" style="display:none">Auf Startbildschirm legen</button>
+      <div class="row">
+        <a class="btn" id="mapBtn" href="#" target="_blank" rel="noopener">📍 Anfahrt</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>🎟️ Vorverkauf</h3>
+      <p id="evVvk" style="margin:4px 0 0"></p>
     </div>
     <div class="card">
       <h3>🎟️ Vorverkauf</h3>
