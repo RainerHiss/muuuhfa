@@ -5,7 +5,7 @@ try {
   // offline: Push-Teil wird beim nächsten Online-Start geladen
 }
 
-const CACHE = "muuuhfa-v1";
+const CACHE = "muuuhfa-v2";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png"];
 
 self.addEventListener("install", (e) => {
