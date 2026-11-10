@@ -238,37 +238,41 @@ if ("serviceWorker" in navigator && ONESIGNAL_APP_ID === "HIER-ONESIGNAL-APP-ID"
   navigator.serviceWorker.register("sw.js", { scope: base }).catch(() => {});
 }
 window.OneSignalDeferred = window.OneSignalDeferred || [];
+let osReady = null;
+function showHint(t) { $("hint").style.display = "block"; $("hint").textContent = t; }
+function upd() {
+  if (!osReady) return;
+  const on = osReady.Notifications.permission && osReady.User.PushSubscription.optedIn;
+  $("pushBtn").textContent = on ? "✅ Benachrichtigungen aktiv" : "Benachrichtigungen aktivieren";
+}
 if (ONESIGNAL_APP_ID !== "HIER-ONESIGNAL-APP-ID") {
   OneSignalDeferred.push(async function (OneSignal) {
-    await OneSignal.init({
-      appId: ONESIGNAL_APP_ID,
-      serviceWorkerPath: "sw.js",
-      serviceWorkerParam: { scope: base },
-      notifyButton: { enable: false },
-      welcomeNotification: { disable: true }
-    });
-    const upd = () => {
-      const on = OneSignal.Notifications.permission && OneSignal.User.PushSubscription.optedIn;
-      $("pushBtn").textContent = on ? "✅ Benachrichtigungen aktiv" : "Benachrichtigungen aktivieren";
-    };
-    upd();
-    OneSignal.User.PushSubscription.addEventListener("change", upd);
-    $("pushBtn").addEventListener("click", async () => {
-      if (isIOS && !standalone) {
-        $("hint").style.display = "block";
-        $("hint").textContent = "Bitte zuerst die App zum Home-Bildschirm hinzufügen und von dort öffnen.";
-        return;
-      }
-      try { await OneSignal.Notifications.requestPermission(); } catch (e) {}
+    try {
+      await OneSignal.init({
+        appId: ONESIGNAL_APP_ID,
+        serviceWorkerPath: "sw.js",
+        serviceWorkerParam: { scope: base },
+        notifyButton: { enable: false },
+        welcomeNotification: { disable: true }
+      });
+      osReady = OneSignal;
       upd();
-    });
-  });
-} else {
-  $("pushBtn").addEventListener("click", () => {
-    $("hint").style.display = "block";
-    $("hint").textContent = "Push ist noch nicht eingerichtet (OneSignal App-ID fehlt).";
+      OneSignal.User.PushSubscription.addEventListener("change", upd);
+    } catch (err) {
+      showHint("OneSignal konnte nicht starten: " + (err && err.message ? err.message : err));
+    }
   });
 }
+$("pushBtn").addEventListener("click", async () => {
+  if (ONESIGNAL_APP_ID === "HIER-ONESIGNAL-APP-ID") return showHint("Push ist noch nicht eingerichtet (OneSignal App-ID fehlt).");
+  if (isIOS && !standalone) return showHint("Bitte zuerst die App zum Home-Bildschirm hinzufügen und von dort öffnen.");
+  if (!osReady) return showHint("Push-Dienst nicht geladen. Prüfe Internet, Werbeblocker oder die Site URL in OneSignal.");
+  try { await osReady.Notifications.requestPermission(); } catch (e) { showHint("Fehler: " + e.message); }
+  upd();
+  if ("Notification" in window && Notification.permission === "denied") {
+    showHint("Benachrichtigungen sind für diese Seite blockiert. Erlaube sie in den Browser-Einstellungen.");
+  }
+});
 </script>
 </body>
 </html>
