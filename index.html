@@ -196,7 +196,7 @@ function show(t) {
   scrollTo(0, 0);
   try { history.replaceState(null, "", "#" + t); } catch (e) {}
 }
-if (["programm", "news","Bilder","sponsoren"].includes(location.hash.slice(1))) show(location.hash.slice(1));
+if (["programm", "news","bilder","sponsoren"].includes(location.hash.slice(1))) show(location.hash.slice(1));
 
 // Inhalte
 let startTs = 0;
