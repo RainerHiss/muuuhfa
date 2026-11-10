@@ -25,6 +25,10 @@
       "text": "Hier findest du Termine, Neuigkeiten und unsere Sponsoren. Tipp: Installiere die App auf deinem Startbildschirm, dann verpasst du nichts."
     }
   ],
+"galerie": [
+    { "bild": "galerie1.jpg", "titel": "Oma und Opa freuen sich auf die MuuuhFa" }
+  ],
+  
  "sponsoren": [
   {
     "name": "Malerbertriebe Heindrich Schmid",
