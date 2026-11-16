@@ -28,7 +28,8 @@
 "galerie": [
     { "bild": "galerie1.jpg", "titel": "Oma und Opa und der ganze Stall freuen sich auf die MuuuhFa" },
     { "bild": "galerie2.1.jpg", "titel": "Eschbach -tierisch gut drauf-" },
-    { "bild": "galerie3.jpg", "titel": "MuuuhFa -tierisch gut drauf-" }
+    { "bild": "galerie3.jpg", "titel": "MuuuhFa -tierisch gut drauf-" },
+    { "bild": "galerie4.gif", "titel": "MuuuhFa" }
   ],
   
  "sponsoren": [
